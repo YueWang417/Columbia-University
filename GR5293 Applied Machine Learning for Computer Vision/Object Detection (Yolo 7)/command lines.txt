@@ -1,0 +1,17 @@
+# preparation 
+git clone https://github.com/RizwanMunawar/yolov7-object-tracking.git
+cd yolov7-object-tracking
+python3 -m venv yolov7objtracking
+source yolov7objtracking/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# trim the  video to a 30-second duration and save it as "output.mp4"
+ffmpeg -i /Users/yuewang/Desktop/HW4/football.mp4 -ss 00:00:10 -t 00:00:40 -c copy /Users/yuewang/Desktop/HW4/output.mp4
+
+# Task 1 (output.mp4)
+python detect.py --weights yolov7.pt --source "/Users/yuewang/Desktop/HW4/output.mp4" --classes 0
+# Task 2
+python detect.py --weights yolov7.pt --source "/Users/yuewang/Desktop/HW4/output.mp4" --classes 32
+# Task 3
+python detect.py --weights yolov7.pt --source 0
